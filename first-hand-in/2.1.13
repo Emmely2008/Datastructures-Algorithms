@@ -1,0 +1,83 @@
+import math
+import random
+
+  
+class Card:
+  def __init__(self, name, value):
+    self.name = name
+    self.value = value 
+  def __repr__(self):
+    return str(self.value) + ":" + self.name
+  def getValue(self):
+    return self.value
+  def compareTo(self, that):
+    BEFORE = 1
+    EQUAL = 0
+    AFTER = -1
+    if(self.getValue() == that.getValue()):
+      return EQUAL
+    if(self.getValue()< that.getValue()):
+      return BEFORE
+    if(self.getValue() > that.getValue()):
+      return AFTER    
+    
+def deck():
+  names = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+
+  suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds']
+
+  i = 0
+  cards = []
+  for s in suits:
+    for n in names:
+      cards.append(Card(s+n, i))
+      i = i + 1
+  return cards# deck
+  
+  
+def shuffle(arr):
+  n = len(arr) -1    
+  for i in range(len(arr)):
+    #i = math.floor(random.random() * n)
+    pos = int(math.floor(random.random() * n))
+    arr = swap(arr, i, pos)
+  return arr
+
+def swap(arr, i, pos):
+  temp = arr[i]
+  arr[i] = arr[pos]
+  arr[pos] = temp
+  return arr
+  
+  
+def orderCards(list):
+  
+  for i in range(len(list)):
+    smallest_pos=i #pick up a card
+
+    for j in range(i,len(list)):
+      #do we have a smaller card? the swap    
+      if(list[smallest_pos].compareTo(list[j])==-1):
+        smallest_pos=j;
+
+        
+       
+    list=swap(list,i,smallest_pos)
+    
+  return list
+  
+  
+  
+  
+  
+
+result = deck()
+print(result)
+print(shuffle(result))
+
+print(orderCards(result))
+
+
+
+
+

@@ -1,0 +1,41 @@
+import random
+import math
+def couponCollectorProblem(n):
+	a = range(n)
+	i = 0
+	while( len(a) > 0 ):
+	  chance = math.floor(random.random()*n);
+	  i += 1
+	  if chance in a:
+		try:
+		  a.remove(chance)
+		except:
+		  pass
+	return i;    
+      
+
+def experiment(n,runs):
+    i = 0
+    total = 0
+    while( i < runs ):
+      total += couponCollectorProblem(n)
+      i=i+1    
+    return total/runs;
+
+
+n=6
+runs=1000.0	
+exp1 = experiment(n,runns)
+#expected =
+print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp1))
+
+n=20
+runs=1000.0	
+exp2 = experiment(n,runns) 
+#expected=
+print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp2))
+
+
+# 1.4.45     Coupon collector problem. Generating random integers 
+# as in the previous exercise, run experiments to validate the hypothesis 
+# that the number of integers generated before all possible values are generated is ~N HN.

@@ -1,0 +1,44 @@
+import random
+import math
+
+def birthdayProblem(n):
+    i = 0
+    a = []
+    while( i < n ):
+      chance = math.floor(random.random()*n);
+      for j in  a:
+        if(j==chance):
+          i = n
+          break      
+      a.append(chance)
+      i += 1
+    return a
+
+def experiment(n,runs):
+    i = 0
+    total = 0
+    while( i < runs ):
+      total += len(birthdayProblem(n))
+      i=i+1    
+    return total/runs;
+
+n=30
+runs=1000.0	
+exp1 = experiment(n,runns)
+expected = math.sqrt((math.pi*n)/2)
+
+
+print("With n="+str(n)+" runs="+str(runs)+": got result="+str(exp1)+" hypothesis="+str(expected))
+
+n=80
+runs=1000.0	
+exp2 = experiment(n,runns) 
+expected = math.sqrt((math.pi*n)/2)
+
+print("With n="+str(n)+" runs="+str(runs)+": got result="+str(exp2)+" hypothesis="+str(expected))
+
+
+# 1.4.44     Birthday problem. Write a program that takes an integer N 
+# from the command line and uses StdRandom.uniform() to generate a random sequence 
+# of integers between 0 and N – 1. Run experiments to validate the hypothesis that 
+# the number of integers generated before the ﬁrst repeated value is found is ~√N/2. 
