@@ -1,14 +1,13 @@
-# Datastructures-Algorithms
-# 1. Compulsory algorithm Assignment - Experiments and Sorting.
+## 1. Compulsory algorithm Assignment - Experiments and Sorting.
 This is the hand-in paper for Datastructure & Algorithms course. It consists of 3 bullets points (Subjects) which needs attention. This paper will include results, comments to results and the essential code.
 
 I've chossen to make all experiments and programs in "Python". My codes can be run an executed online.
 
-## Birthday Experiencement
+## Birthday Experiment
 #### Description 
 Write a program that takes an integer N from the command line and generate a random sequence of integers between 0 and N – 1. Run experiments to validate the hypothesis that the number of integers generated before the first repeated value is found is ~√(pi)N/2.
 
-#### Online
+#### Execute Program Online
 
 jdoodle.com/a/nln
 
@@ -41,34 +40,12 @@ def birthdayProblem(n):
       i += 1
     return a
 ```
-With this, i made another algorithm that would run through the tests N amount of times and take the average. This way i could call and make tests like this:
-```golang
-fmt.Println(RunTestDuplicate(365, 1000000))            // This one will printout the average of a milion tests with 365 days as N.
-```
 
-The Running of many tests and averaging the reults is below:
-```golang
-func RunTestDuplicate(n int, t int)float64{
-
-
-	Results := []int{}
-
-	for i:=t; i>0; i--{
-		Results = append(Results, NumberDuplicate(n))
-	}
-
-	var total float64 = 0
-	for _, value := range Results{
-		total += float64(value)
-	}
-	return total/float64(len(Results))
-}
-```
 
 ## Coupon collector problem.
 #### Description
 Generating random integers as in the previous exercise run experiments to validate the hypothesis that the number of integers generated before all possible values are generated is ~N HN.
-#### Online
+#### Execute Program Online
 
 jdoodle.com/a/nlk
 
@@ -102,7 +79,8 @@ order spades, hearts, clubs, diamonds) and by rank within each suit, with the re
 that the cards must be laid out face down in a row, and the only allowed operations are
 to check the values of two cards and to exchange two cards (keeping them face down).
 
-#### Online
+#### Execute Program Online
+
 jdoodle.com/a/nll
 
 #### Results & Comments:
