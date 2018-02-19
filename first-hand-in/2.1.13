@@ -72,9 +72,11 @@ def orderCards(list):
   
 
 result = deck()
+print("Init deck")
 print(result)
+print("Shuffled deck")
 print(shuffle(result))
-
+print("Sorted deck")
 print(orderCards(result))
 
 

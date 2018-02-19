@@ -25,13 +25,13 @@ def experiment(n,runs):
 
 n=6
 runs=1000.0	
-exp1 = experiment(n,runns)
+exp1 = experiment(n,runs)
 #expected =
 print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp1))
 
 n=20
 runs=1000.0	
-exp2 = experiment(n,runns) 
+exp2 = experiment(n,runs) 
 #expected=
 print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp2))
 
