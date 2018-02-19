@@ -51,8 +51,10 @@ jdoodle.com/a/nlk
 
 #### Results & comments
 
+```
 With n=6 runs=1000.0 result=14.606
 With n=20 runs=1000.0 result=71.939
+```
 
 #### Essential Code
 
