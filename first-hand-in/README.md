@@ -15,14 +15,16 @@ jdoodle.com/a/nln
 
 Results to this problem is as follows:
 ```
-With n=30 runs=1000.0: got result=7.467 hypothesis=6.86468424648
-With n=80 runs=1000.0: got result=11.792 hypothesis=11.2099824328
+With n=30 runs=1000.0: got result=7.515 hypothesis=6.86468424648
+-0.650315753522
+With n=365 runs=1000.0: got result=24.67 hypothesis=23.9445329727
+-0.725467027312
 ```
-This seems very close, the diffence is: ~0.671 and might therefor be true. However i wanted to try see what would happen if you limited towards infinity to see if the expected formular would get closer to actual tests. So new results show from if N was 1000 and not 365.
+This seems very close, the diffence is: ~0.650 and might therefor be true. However i wanted to try see what would happen if you limited towards infinity to see if the expected formular would get closer to actual tests. So new results show from if N was 1000 and not 365.
 
-The difference is ~0.656. Which gets higher than previus. But it stays about the same offset for any value put in to N. This indicates it is very close to the actual formular.
+The difference is ~0.725. Which gets higher than previews. But it stays about the same offset for any value put in to N. This indicates it is very close to the actual formula.
 
-The big O notation is ofcause the formular. O(√(pi)N/2) But worst case scenario, it could also be O(N). It could potentially, go through the whole available valuespace before it finds a duplicate. Which is N. 
+The big O notation is ofcause the formular. O(√(pi)N/2) But worst case scenario, it could also be O(N). It could potentially, go through the whole available value space before it finds a duplicate. Which is N. 
 
 #### Essential Code:
 
@@ -52,8 +54,11 @@ jdoodle.com/a/nlk
 #### Results & comments
 
 ```
-With n=6 runs=1000.0 result=14.606
-With n=20 runs=1000.0 result=71.939
+With n=10 runs=1000.0 result=28.8::25.2106666667
+With n=100 runs=1000.0 result=520.01::504.213333334
+With n=1000 runs=100.0 result=7534.96::7563.20000001
+
+2.51165333333
 ```
 
 #### Essential Code
@@ -86,6 +91,21 @@ to check the values of two cards and to exchange two cards (keeping them face do
 jdoodle.com/a/nll
 
 #### Results & Comments:
+This exercise is very open for interpretation and open for many kinds of solutions. 
+When translating the idea from physical cards to a program, this is where you can pick easy solutions or more accurate solutions. 
+But in essence this problem can be solved by many ways. I've chosen this following way:
+
+- 1. Start at the first Card from the left
+- 2. Pick up and look at Card at this first position. 
+- 3. Comparer all the Cards to the right of the position and find the smallest one. 
+- 4. Iterate to the next position and go to step 3. until all Cards are sorted.
+
+
+This is implemented in selection sort. 
+
+I was choosing Selection sort because we only need to look at two cards at the time. However we need to keep a note or remember the value and position the smallest card.
+
+I am assuming here that we have good memory or a pen to write it down if we need to. 
 
 ```
  deck
