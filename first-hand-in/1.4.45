@@ -46,13 +46,13 @@ runs=1000.0
 exp1 = experiment(n,runs)
 expected =  n*H(n)
 print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp1)+" expected result="+str(expected))
-print((exp1-expected)/n)
+print("Error diff: " + str((expected-exp1)/exp1))
 n=100
 runs=100.0	
 exp2 = experiment(n,runs) 
 expected = n* H(n)
 print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp2)+" expected result="+str(expected))
-print((exp2-expected)/n)
+print("Error diff: " + str((expected-exp2)/exp2))
 
 
 

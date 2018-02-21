@@ -18,14 +18,14 @@ jdoodle.com/a/nln
 
 Results to this problem is as follows:
 ```
-With n=30 runs=1000.0: got result=7.363 hypothesis=6.86468424648
--0.0676783584845
-With n=365 runs=1000.0: got result=23.958 hypothesis=23.9445329727
--0.000562109830208
+With n=30 runs=1000.0: got result=7.57 hypothesis=6.86468424648
+Error diff: -0.0931724905577
+With n=365 runs=1000.0: got result=24.553 hypothesis=23.9445329727
+Error diff: -0.0247817793065
 ```
 I calculate how much they differs by expected value - actual value / actual value to get percentage error.
 
-This seems very close, the difference is: ~ < 10% error and and ~ < 1% for N=365 and might indicate that the hypothesis ~√(pi)N/2 is true or very close to the actual formula.
+This seems very close, the difference is: ~ < 10% error and and ~ < 4% for N=365 and might indicate that the hypothesis ~√(pi)N/2 is true or very close to the actual formula.
 
 The big O notation is the formula. O(√(pi)N/2) But worst case scenario, it could also be O(N). It could potentially, go through the whole available value space before it finds a duplicate. Which is N. 
 
@@ -77,18 +77,18 @@ jdoodle.com/a/nBk
 
 #### Results & comments
 
-By running the experiment I would like to conclude that the hypothesis that we can use the formula N*H, where H stands for harmonic number is a quite accurate formula.
-I calculate the expected-actual result divided by expected result.
+By running the experiment I would like to conclude that the hypothesis that the formula N*H, where H stands for harmonic number is a quite accurate formula.
+
 
 I calculate how much they differs by expected value - actual value / actual value to get percentage error.
 
-Those differenced are -0.0104502659226 and 0.0324166618847 which gives us a percentage error of less than 4% error.
+Those differenced are -0.00154 and -0.018564 which gives us a percentage error of less than 4% error.
 
 ```
-With n=10 runs=1000.0 result=29.599 expected result=29.289682579
--0.0104502659226
-With n=100 runs=100.0 result=502.45 expected result=518.737751764
-0.0324166618847
+With n=10 runs=1000.0 result=29.335 expected result=29.289682579
+Error diff: -0.00154482430694
+With n=100 runs=100.0 result=528.55 expected result=518.737751764
+Error diff: -0.0185644654925
 
 ```
 
