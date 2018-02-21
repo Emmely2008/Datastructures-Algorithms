@@ -1,10 +1,10 @@
 ## 1. Compulsory algorithm Assignment - Experiments and Sorting.
 
-This handin is also available on GitHub. https://github.com/Emmely2008/Datastructures-Algorithms/tree/master/first-hand-in
+This hand-in is also available on GitHub. https://github.com/Emmely2008/Datastructures-Algorithms/tree/master/first-hand-in
 
 This is the hand-in paper for Datastructure & Algorithms course. It consists of 3 bullets points (Subjects) which needs attention. This paper will include results, comments to results and the essential code.
 
-I've chossen to make all experiments and programs in "Python". My codes can be run an executed online.
+I've chosen to make all experiments and programs in "Python". My codes can be run an executed online.
 
 ## Birthday Experiment
 #### Description 
@@ -127,7 +127,7 @@ print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp2)+" expected result
 print((expected-exp2)/exp2)
 ``` 
 
-I used this formuka to calculte the harminic numbers. The code was taken from [StackOwerFlow](https://stackoverflow.com/questions/404346/python-program-to-calculate-harmonic-series):
+I used this formula to calculate the harmonic numbers. The code was taken from [StackOwerFlow](https://stackoverflow.com/questions/404346/python-program-to-calculate-harmonic-series):
  
  ``` 
  def H(n):
@@ -161,7 +161,7 @@ But in essence this problem can be solved by many ways. I've chosen this followi
 
 - 1. Start at the first Card from the left
 - 2. Pick up and look at Card at this first position. 
-- 3. Comparer all the Cards to the right of the position and find the smallest one. 
+- 3. Compare all the Cards to the right of the position and find the smallest one. 
 - 4. Iterate to the next position and go to step 3. until all Cards are sorted.
 
 
