@@ -1,4 +1,7 @@
 ## 1. Compulsory algorithm Assignment - Experiments and Sorting.
+
+This handin is also available on GitHub. https://github.com/Emmely2008/Datastructures-Algorithms/tree/master/first-hand-in
+
 This is the hand-in paper for Datastructure & Algorithms course. It consists of 3 bullets points (Subjects) which needs attention. This paper will include results, comments to results and the essential code.
 
 I've chossen to make all experiments and programs in "Python". My codes can be run an executed online.
