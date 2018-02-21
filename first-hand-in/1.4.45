@@ -1,5 +1,23 @@
 import random
 import math
+from math import log
+
+
+
+
+def H(n):
+    """Returns an approximate value of n-th harmonic number.
+
+       http://en.wikipedia.org/wiki/Harmonic_number
+    """
+    # Euler-Mascheroni constant
+    gamma = 0.57721566490153286060651209008240243104215933593992
+    return gamma + log(n) + 0.5/n - 1./(12*n**2) + 1./(120*n**4)
+
+
+
+
+# 1.4.45
 def couponCollectorProblem(n):
 	a = range(n)
 	i = 0
@@ -23,17 +41,22 @@ def experiment(n,runs):
     return total/runs;
 
 
-n=6
+n=10
 runs=1000.0	
 exp1 = experiment(n,runs)
-#expected =
-print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp1))
-
-n=20
-runs=1000.0	
+expected =  n*H(n)
+print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp1)+" expected result="+str(expected))
+print((exp1-expected)/n)
+n=100
+runs=100.0	
 exp2 = experiment(n,runs) 
-#expected=
-print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp2))
+expected = n* H(n)
+print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp2)+" expected result="+str(expected))
+print((exp2-expected)/n)
+
+
+
+
 
 
 # 1.4.45     Coupon collector problem. Generating random integers 

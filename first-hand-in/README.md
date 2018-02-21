@@ -15,16 +15,16 @@ jdoodle.com/a/nln
 
 Results to this problem is as follows:
 ```
-With n=30 runs=1000.0: got result=7.515 hypothesis=6.86468424648
--0.650315753522
-With n=365 runs=1000.0: got result=24.67 hypothesis=23.9445329727
--0.725467027312
+With n=30 runs=1000.0: got result=7.363 hypothesis=6.86468424648
+-0.0676783584845
+With n=365 runs=1000.0: got result=23.958 hypothesis=23.9445329727
+-0.000562109830208
 ```
-This seems very close, the diffence is: ~0.650 and might therefor be true. However i wanted to try see what would happen if you limited towards infinity to see if the expected formular would get closer to actual tests. So new results show from if N was 1000 and not 365.
+I calculate how much they differs by expected value - actual value / actual value to get percentage error.
 
-The difference is ~0.725. Which gets higher than previews. But it stays about the same offset for any value put in to N. This indicates it is very close to the actual formula.
+This seems very close, the difference is: ~ < 10% error and and ~ < 1% for N=365 and might indicate that the hypothesis ~√(pi)N/2 is true or very close to the actual formula.
 
-The big O notation is ofcause the formular. O(√(pi)N/2) But worst case scenario, it could also be O(N). It could potentially, go through the whole available value space before it finds a duplicate. Which is N. 
+The big O notation is the formula. O(√(pi)N/2) But worst case scenario, it could also be O(N). It could potentially, go through the whole available value space before it finds a duplicate. Which is N. 
 
 #### Essential Code:
 
@@ -43,27 +43,55 @@ def birthdayProblem(n):
     return a
 ```
 
+Running the experiments:
+```python
+n=30
+runs=1000.0	
+exp1 = experiment(n,runs)
+expected = math.sqrt((math.pi*n)/2)
+
+
+print("With n="+str(n)+" runs="+str(runs)+": got result="+str(exp1)+" hypothesis="+str(expected))
+print((expected-exp1)/exp1)
+
+n=365
+runs=1000.0	
+exp2 = experiment(n,runs) 
+expected = math.sqrt((math.pi*n)/2)
+
+print("With n="+str(n)+" runs="+str(runs)+": got result="+str(exp2)+" hypothesis="+str(expected))
+print((expected-exp2)/exp2)
+
+```
+
 
 ## Coupon collector problem.
 #### Description
 Generating random integers as in the previous exercise run experiments to validate the hypothesis that the number of integers generated before all possible values are generated is ~N HN.
 #### Execute Program Online
 
-jdoodle.com/a/nlk
+jdoodle.com/a/nBk
 
 #### Results & comments
 
-```
-With n=10 runs=1000.0 result=28.8::25.2106666667
-With n=100 runs=1000.0 result=520.01::504.213333334
-With n=1000 runs=100.0 result=7534.96::7563.20000001
+By running the experiment I would like to conclude that the hypothesis that we can use the formula N*H, where H stands for harmonic number is a quite accurate formula.
+I calculate the expected-actual result divided by expected result.
 
-2.51165333333
+I calculate how much they differs by expected value - actual value / actual value to get percentage error.
+
+Those differenced are -0.0104502659226 and 0.0324166618847 which gives us a percentage error of less than 4% error.
+
+```
+With n=10 runs=1000.0 result=29.599 expected result=29.289682579
+-0.0104502659226
+With n=100 runs=100.0 result=502.45 expected result=518.737751764
+0.0324166618847
+
 ```
 
 #### Essential Code
 
-The fucntion to run this test is as follows:
+The function to run the coupon problem:
 ```python
 def couponCollectorProblem(n):
 	a = range(n)
@@ -77,7 +105,40 @@ def couponCollectorProblem(n):
 		except:
 		  pass
 	return i;   
+```
+
+Code to print out results compared to expected result:
+
 ``` 
+n=10
+runs=1000.0	
+exp1 = experiment(n,runs)
+expected =  n*H(n)
+print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp1)+" expected result="+str(expected))
+print((expected-exp1)/exp1)
+n=100
+runs=100.0	
+exp2 = experiment(n,runs) 
+expected = n* H(n)
+print("With n="+str(n)+" runs="+str(runs)+" result="+str(exp2)+" expected result="+str(expected))
+print((expected-exp2)/exp2)
+``` 
+
+I used this formuka to calculte the harminic numbers. The code was taken from [StackOwerFlow](https://stackoverflow.com/questions/404346/python-program-to-calculate-harmonic-series):
+ 
+ ``` 
+ def H(n):
+    """Returns an approximate value of n-th harmonic number.
+
+       http://en.wikipedia.org/wiki/Harmonic_number
+    """
+    # Euler-Mascheroni constant
+    gamma = 0.57721566490153286060651209008240243104215933593992
+    return gamma + log(n) + 0.5/n - 1./(12*n**2) + 1./(120*n**4)
+
+
+
+ ``` 
 
 ## Deck sort
 #### Description

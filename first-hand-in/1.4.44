@@ -29,13 +29,15 @@ expected = math.sqrt((math.pi*n)/2)
 
 
 print("With n="+str(n)+" runs="+str(runs)+": got result="+str(exp1)+" hypothesis="+str(expected))
+print((expected-exp1)/exp1)
 
-n=80
+n=365
 runs=1000.0	
 exp2 = experiment(n,runs) 
 expected = math.sqrt((math.pi*n)/2)
 
 print("With n="+str(n)+" runs="+str(runs)+": got result="+str(exp2)+" hypothesis="+str(expected))
+print((expected-exp2)/exp2)
 
 
 # 1.4.44     Birthday problem. Write a program that takes an integer N 
