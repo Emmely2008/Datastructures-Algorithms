@@ -1,10 +1,13 @@
 package main
+/** This code is copies to a large extent from Binary Search Tree implementation https://appliedgo.net/bintree/ */
+
 import (
 	"errors"
 )
-type Data struct{
-	id string
-	answer string
+
+type Data struct {
+	id       string
+	answer   string
 	question string
 }
 type Node struct {
@@ -13,11 +16,11 @@ type Node struct {
 	Left  *Node
 	Right *Node
 }
-
-func NavigateNode(n *Node, b string) *Node{
-	if(b == "yes"){
+// Special function that depending on the answer retrun the node to the left or to the right.
+func NavigateNode(n *Node, b string) *Node {
+	if (b == "yes") {
 		return n.Left
-	}else{
+	} else {
 		return n.Right
 	}
 }
@@ -54,7 +57,7 @@ func (n *Node) Insert(value string, data Data) error {
 func (n *Node) Find(s string) (Data, bool) {
 
 	if n == nil {
-		d1 := Data{"","",""}
+		d1 := Data{"", "", ""}
 		return d1, false
 	}
 
@@ -71,17 +74,15 @@ func (n *Node) Find(s string) (Data, bool) {
 	}
 }
 
-
-
-
-
 //TREE STRUCT
-func GetRoot(t *Tree)*Node{
+func GetRoot(t *Tree) *Node {
 	return t.Root
 }
+
 type Tree struct {
 	Root *Node
 }
+
 //Insert calls Node.Insert unless the root node is nil
 func (t *Tree) Insert(value string, data Data) error {
 	//If the tree is empty, create a new node,…
@@ -92,33 +93,36 @@ func (t *Tree) Insert(value string, data Data) error {
 	//…else call Node.Insert.
 	return t.Root.Insert(value, data)
 }
+
 //Find calls Node.Find unless the root node is nil
 func (t *Tree) Find(s string) (Data, bool) {
 	if t.Root == nil {
 		//d := Data("","")
-		d1 := Data{"","",""}
+		d1 := Data{"", "", ""}
 		return d1, false
 	}
 	return t.Root.Find(s)
 }
+
 //Delete has one special case: the empty tree. (And deleting from an empty tree is an error.) In all other cases, it calls Node.Delete.
 func (t *Tree) Delete(s string) error {
 
 	if t.Root == nil {
 		return errors.New("Cannot delete from an empty tree")
 	}
-//	CallNode.Delete. Passing a “fake” parent node here almost avoids having to treat the root node as a special case, with one exception.
-fakeParent := &Node{Right: t.Root}
-err := t.Root.Delete(s, fakeParent)
-if err != nil {
-return err
+	//	CallNode.Delete. Passing a “fake” parent node here almost avoids having to treat the root node as a special case, with one exception.
+	fakeParent := &Node{Right: t.Root}
+	err := t.Root.Delete(s, fakeParent)
+	if err != nil {
+		return err
+	}
+	//If the root node is the only node in the tree, and if it is deleted, then it only got removed from fakeParent. t.Root still points to the old node. We rectify this by setting t.Root to nil.
+	if fakeParent.Right == nil {
+		t.Root = nil
+	}
+	return nil
 }
-//If the root node is the only node in the tree, and if it is deleted, then it only got removed from fakeParent. t.Root still points to the old node. We rectify this by setting t.Root to nil.
-if fakeParent.Right == nil {
-t.Root = nil
-}
-return nil
-}
+
 //Traverse is a simple method that traverses the tree in left-to-right order (which, by pure incidence ;-), is the same as traversing from smallest to largest value) and calls a custom function on each node.
 func (t *Tree) Traverse(n *Node, f func(*Node)) {
 	if n == nil {
@@ -129,37 +133,7 @@ func (t *Tree) Traverse(n *Node, f func(*Node)) {
 	t.Traverse(n.Right, f)
 }
 
-
-
 //TREE STRUCT
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // TREE
 func (n *Node) findMax(parent *Node) (*Node, *Node) {
@@ -171,6 +145,7 @@ func (n *Node) findMax(parent *Node) (*Node, *Node) {
 	}
 	return n.Right.findMax(n)
 }
+
 //replaceNode replaces the parent’s child pointer to n with a pointer to the replacement node. parent must not be nil.
 func (n *Node) replaceNode(parent, replacement *Node) error {
 	if n == nil {
@@ -184,6 +159,7 @@ func (n *Node) replaceNode(parent, replacement *Node) error {
 	parent.Right = replacement
 	return nil
 }
+
 //Delete removes an element from the tree. It is an error to try deleting an element that does not exist. In order to remove an element properly, Delete needs to know the node’s parent node. parent must not be nil.
 func (n *Node) Delete(s string, parent *Node) error {
 	if n == nil {
@@ -219,11 +195,3 @@ func (n *Node) Delete(s string, parent *Node) error {
 		return replacement.Delete(replacement.Value, replParent)
 	}
 }
-
-
-
-
-
-
-
-
