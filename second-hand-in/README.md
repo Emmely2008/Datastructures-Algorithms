@@ -8,7 +8,8 @@ For the Binary Tree implementation I have taken inspiration from this article [B
 
 
 Go language has been used as the programming language.
-The program consists of two files DecisionTree.go and Main.go.
+
+The program consists of two files *DecisionTree.go* and _Main.go_.
 
 Decision tree contains all the logic regarding the decision tree
 The Main.go is used to run the program and make the tests.
