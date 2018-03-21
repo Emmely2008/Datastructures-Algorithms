@@ -1,20 +1,25 @@
 # Algirithm Hand-in
 By Emmely Lundberg
 
-For the Binary Tree implementation I have taken inspiration from this article [Binary Tree](https://appliedgo.net/bintree/).
 
 
 ### The implementation in summary
+
+For the code for the Decision Tree (DecisionTree.go) implementation I have taken inspiration from this article [Binary Tree](https://appliedgo.net/bintree/).
 
 
 Go language has been used as the programming language.
 
 The program consists of two files *DecisionTree.go* and _Main.go_.
 
+
+###### DecisionTree.go
 Decision tree contains all the logic regarding the decision tree
+
+###### Main.go
 The Main.go is used to run the program and make the tests.
 
-The implementation of this solutions consist of a balanced Binary Tree where I have carefully inserted nodes so it would be shaped to solve the problem.
+The implementation of this solutions consist of a balanced Binary Search Tree. The nodes contain data about the question/answer to the student. The nodes are inserted nodes so the binary search tree would be shaped as the Decision Tree in the task.
 
 I used [this site](https://www.cs.usfca.edu/~galles/visualization/BST.html) to verify that the tree were build up as I wanted. The graphical representation can be seen in the picture below.
 
@@ -24,13 +29,13 @@ This is what the tree looks like. Positive answers "yes" - goes to the left. Neg
 
 
 
-The Algorithm or method I use to get to the solution
+### The Algorithm or method I use to get to the solution
 
-First I ask the tree for the node. And ass it to print the question that is stored in the node data.
+1. First I ask the tree for the node. And ass it to print the question that is stored in the node data.
 
-the I use the following method that takes the answer "yes" or "no" and return the child (left or right node) that matches the answer.
+2. Then I use the following method that takes the answer "yes" or "no" and return the child (left or right node) that matches the answer.
 
-Then I iterate over this method until I reached the last question.
+3. Then I iterate over this method until I reached the last question where the node contains the answer about the student.
 
 
 ### Implementation in details
